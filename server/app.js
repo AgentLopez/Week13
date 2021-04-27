@@ -9,9 +9,30 @@ const { Op } = require('sequelize')
 var bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { response } = require('express')
+const formidable = require('formidable')
+const { v4: uuidv4 } = require('uuid')
 
+
+
+app.use('/uploads', express.static('uploads'))
 
 app.use(cors())
+
+app.post('/upload', (req, res) => {
+
+
+    new formidable.IncomingForm().parse(req)
+        .on('fileBegin', (name, file) => {
+            uniqueFilename = `${uuidv4()}.${file.name.split('.').pop()}`
+            file.path = __dirname + '/uploads/' + uniqueFilename
+        })
+        .on('file', (name, file) => {
+            let url = `http://localhost:8000/uploads/${uniqueFilename}`
+            console.log(url)
+            res.json({file: url})
+        })
+
+})
 
 app.post('/register', (req, res) => {
     let userName = req.body.userName
@@ -119,8 +140,8 @@ app.post('/profile', (req, res) => {
                         where: {
                             userName: username
                         }
-                    }) .then((response) => {
-                        res.json({success:true})
+                    }).then((response) => {
+                        res.json({ success: true })
                     })
 
                 })
