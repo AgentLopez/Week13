@@ -15,7 +15,7 @@ function Login(props) {
 
     const clicky = () => {
 
-        fetch('http://localhost:8000/login', {
+        fetch('http://api.x2y1.org/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ function Login(props) {
 
     const guestClick = () => {
         const guest = 'Orange'
-        fetch('http://localhost:8000/login', {
+        fetch('http://api.x2y1.org/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

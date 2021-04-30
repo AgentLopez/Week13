@@ -11,7 +11,7 @@ function MyBooks(props) {
         const token = localStorage.getItem('jsonwebtoken')
         console.log(props.userId)
 
-        fetch(`http://localhost:8000/my-books/${props.userId}`, {
+        fetch(`http://api.x2y1.org/my-books/${props.userId}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`

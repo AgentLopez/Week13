@@ -18,7 +18,7 @@ class EditBook extends Component {
     }
 
     getBook = (BookId) => {
-        fetch(`http://localhost:8000/books/${BookId}`)
+        fetch(`http://api.x2y1.org/books/${BookId}`)
     .then(response => response.json())
     .then(book => {
         console.log(book)
@@ -47,7 +47,7 @@ class EditBook extends Component {
       
     clickyclick = () => {
 
-        fetch(`http://localhost:8000/bookupdate/${this.id}`, {
+        fetch(`http://api.x2y1.org/bookupdate/${this.id}`, {
             method:'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -12,7 +12,7 @@ function Register(props) {
     }
 
     const joinUs = () => {
-        fetch('http://localhost:8000/register', {
+        fetch('http://api.x2y1.org/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

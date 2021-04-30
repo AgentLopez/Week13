@@ -20,7 +20,7 @@ class AddBook extends Component {
 
     clickyclick = () => {
 
-        fetch('http://localhost:8000/books', {
+        fetch('http://api.x2y1.org/books', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -63,9 +63,8 @@ class AddBook extends Component {
             this.state.selectedFile,
             this.state.selectedFile.name
         )
-        axios.post('http://localhost:8000/upload', formData)
+        axios.post('http://api.x2y1.org/upload', formData)
             .then(file => {
-                console.log(file.data)
                 this.setState({
                     ...this.state,
                     theFileFromServer: file.data.file
@@ -88,8 +87,9 @@ class AddBook extends Component {
 
                 <input type="file" onChange={this.imageChoice} />
                 <button onClick={this.handleUpload}>Upload</button>
-
-                <img src={this.state.theFileFromServer} />
+<br />
+<br />
+                <img src={this.state.theFileFromServer} className='bookimage' />
 
 
 

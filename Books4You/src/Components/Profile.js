@@ -8,7 +8,7 @@ function Profile (props) {
     useEffect(() => {
         const token = localStorage.getItem('jsonwebtoken')
 
-        fetch('http://localhost:8000/profile', {
+        fetch('http://api.x2y1.org/profile', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -29,7 +29,7 @@ const onChange = (e) => {
 const clickMail = () => {
     const token = localStorage.getItem('jsonwebtoken')
 
-        fetch('http://localhost:8000/profile', {
+        fetch('http://api.x2y1.org/profile', {
             method: 'POST',
             headers: {
                 'email': user.email,

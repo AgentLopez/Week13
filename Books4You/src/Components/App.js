@@ -15,7 +15,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-      fetch('http://localhost:8000/books')
+      fetch('http://api.x2y1.org/books')
         .then(response => response.json())
         .then(results => {
           this.setState({
